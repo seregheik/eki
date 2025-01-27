@@ -11,7 +11,7 @@ const Hero = () => {
                             {herodata.subText.map((item, index) => {
                                 return (<div className="flex gap-3 py-1 items-center" key={item + index}>
                                     <img className="object-cover" width={20} src={item.icon} alt={item.text} />
-                                    <span className="font-normal text-xs text-gray-500">{item.text}</span>
+                                    <span className="font-normal text-xs md:text-base text-gray-500">{item.text}</span>
                                 </div>)
                             })}
                         </div>
