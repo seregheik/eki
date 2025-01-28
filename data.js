@@ -58,3 +58,18 @@ export const services = {
         },
     ]
 }
+export const orderCard = [
+    {
+        minitext: "100% ORGANIC",
+        image: "images/qualityorganic.png",
+        mainText: "Quality Organic Food Store",
+        buttonText: "Order Now",
+        link: "#"
+    }, {
+        minitext: "100% ORGANIC",
+        image: "images/healthyProducts.png",
+        mainText: "Healthy Products Everyday",
+        buttonText: "Order Now",
+        link: "#"
+    },
+]

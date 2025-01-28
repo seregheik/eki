@@ -1,8 +1,14 @@
 @tailwind utilities;
 @import "tailwindcss";
+@font-face {
+  font-family: "grace";
+  src: url("fonts/CoveredByYourGrace.ttf");
+}
 @theme {
   --color-primary-blue: #213144;
   --color-service-green: #c5ce38;
+  --font-grace: "grace";
+  --font-manrope: Manrope;
 }
 body {
   font-family: "Inter", serif;

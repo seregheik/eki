@@ -1,6 +1,6 @@
 import Hero from "../components/Hero"
-import { cards, services } from "../../data"
-import { Card, ServiceCard } from "../components/utils"
+import { cards, orderCard, services } from "../../data"
+import { Card, ServiceCard, LargeCard } from "../components/utils"
 
 const HomePage = () => {
     return (
@@ -18,10 +18,23 @@ const HomePage = () => {
                             })}
                         </div>
                     </div>
-                    <div className="grid-cols-1 justify-items-center items-center md:grid-cols-2 lg:grid-cols-4 grid py-32 gap-10">
+                    <div className="grid-cols-1 justify-items-center items-center md:grid-cols-2 lg:grid-cols-4 grid pt-32 pb-5 gap-10">
                         {services.cards.map((item, index) => {
                             return (
                                 <ServiceCard key={item + index} image={item.image} icon={item.icon} text={item.title} />
+                            )
+                        })}
+                    </div>
+                    <div className="grid grid-cols-1 pb-10 pt-5 md:grid-cols-2 gap-3">
+                        {orderCard.map((item, index) => {
+                            return (
+                                <LargeCard
+                                    key={item + index}
+                                    image={item.image}
+                                    smalltext={item.minitext}
+                                    maintext={item.mainText}
+                                    buttontext={item.buttonText}
+                                    buttonlink={item.link} />
                             )
                         })}
                     </div>
