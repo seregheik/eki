@@ -27,18 +27,22 @@ export const ServiceCard = ({ image, icon, text }) => {
 };
 export const LargeCard = ({ image, smalltext, maintext, buttontext, buttonlink }) => {
     const [checkDisabled, setcheckDisabled] = useState(false)
+    const [buttonText, setButtonText] = useState(buttontext)
+    const [mainText, setMainText] = useState(maintext)
     let navigate = useNavigate()
     async function handleClick() {
         navigate(buttonlink)
         setcheckDisabled(!checkDisabled)
+        setButtonText("Lemaoooo")
+        setMainText(maintext + " or You DIE")
     }
     return (
         <div className="grid grid-cols-3">
             <img className="col-span-full object-cover rounded-md row-span-full" src={image} alt={image} />
             <div className="col-start-1 col-span-full md:col-end-3 flex flex-col justify-between text-white font-manrope p-4 md:p-7 row-start-1">
                 <div className="text-xs lg:text-base">{smalltext}</div>
-                <div className="font-grace text-3xl md:text-2xl lg:text-5xl">{maintext}</div>
-                <button disabled={checkDisabled} className={" text-xs font-bold px-3 py-2 lg:px-6 lg:py-4 w-fit rounded-sm" + " " + (checkDisabled ? "bg-black text-white" : "hover:cursor-pointer bg-white text-black")} onClick={handleClick}>{buttontext}</button>
+                <div className="font-grace text-3xl md:text-2xl lg:text-5xl">{mainText}</div>
+                <button disabled={checkDisabled} className={" text-xs font-bold px-3 py-2 lg:px-6 lg:py-4 w-fit rounded-sm" + " " + (checkDisabled ? "bg-black text-white" : "hover:cursor-pointer bg-white text-black")} onClick={handleClick}>{buttonText}</button>
             </div>
         </div>
     )
