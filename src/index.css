@@ -1,7 +1,8 @@
 @tailwind utilities;
 @import "tailwindcss";
 @theme {
-    --color-primary-blue : #213144;
+  --color-primary-blue: #213144;
+  --color-service-green: #c5ce38;
 }
 body {
   font-family: "Inter", serif;

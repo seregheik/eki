@@ -5,15 +5,14 @@ import { email } from "../../data"
 const Navbar = () => {
     return (
         <div className="w-full">
-            <div className="bg-primary-blue py-10 border-b-2 border-gray-600">
+            <div className="bg-primary-blue py-5 border-b-2 border-gray-600">
                 <div>
-                    <img className="px-2 lg:px-7" src={icon} alt={icon} srcSet="" />
+                    <img className="px-2 w-32 lg:w-48 object-cover lg:px-7" src={icon} alt={icon} srcSet="" />
                 </div>
             </div>
             <div className="bg-primary-blue flex justify-center">
                 <div style={{ maxWidth: 1100 }} className="flex flex-wrap w-full justify-between">
-                    <div className="px-3 text-white font-light order-2 lg:order-1 text-xs md:text-base flex flex-wrap">
-                        <div to={"/"} className={"text-primary-blue py-4 px-2 md:px-6 bg-white font-bold"}>All Categories</div>
+                    <div className="px-3 text-white font-light text-xs md:text-base flex flex-wrap">
                         {NavBarData.links.map((items, index) => {
                             return (
                                 <NavLink className={({ isActive }) => [
@@ -22,7 +21,7 @@ const Navbar = () => {
                             )
                         })}
                     </div>
-                    <div className="text-end py-4 text-xs w-full lg:w-fit order-1 lg:order-2 text-white">
+                    <div className="text-end py-4 text-xs w-full lg:w-fit hidden md:block text-white">
                         Need Help? <Link inputMode="email" className="hover:underline underline-offset-4" to={email}>{email}</Link>
                     </div>
                 </div>
