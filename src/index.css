@@ -2,7 +2,7 @@
 @import "tailwindcss";
 @font-face {
   font-family: "grace";
-  src: url("fonts/CoveredByYourGrace.ttf");
+  src: url("/fonts/CoveredByYourGrace.ttf");
 }
 @theme {
   --color-primary-blue: #213144;
