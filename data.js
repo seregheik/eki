@@ -73,3 +73,13 @@ export const orderCard = [
         link: "#"
     },
 ]
+export const homeBanner = {
+    image: "images/FreshnNatural.jpg",
+    boxmaintext: "100",
+    boxsubtext: "ORGANIC",
+    maintext: "Fresh & Natural",
+    subMaintext: "Product in Our Store",
+    description: "Explore a vast selection of fresh, natural, and premium-quality products, sourced responsibly to bring health and flavor to your table every single day.",
+    buttonText: "Purchse Now",
+    linkto: "#"
+}

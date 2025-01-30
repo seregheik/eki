@@ -1,7 +1,6 @@
 import Hero from "../components/Hero"
-import { cards, orderCard, services } from "../../data"
-import { Card, ServiceCard, LargeCard } from "../components/utils"
-
+import { cards, orderCard, services, homeBanner } from "../../data"
+import { Card, ServiceCard, LargeCard, Banner } from "../components/utils"
 const HomePage = () => {
     return (
         <div>
@@ -39,12 +38,17 @@ const HomePage = () => {
                         })}
                     </div>
                 </div>
-
             </section>
-
-
+            <Banner
+                image={homeBanner.image}
+                maintext={homeBanner.maintext}
+                submaintext={homeBanner.subMaintext}
+                description={homeBanner.description}
+                linkto={homeBanner.linkto}
+                buttontext={homeBanner.buttonText}
+                boxtext={homeBanner.boxmaintext}
+                boxsubtext={homeBanner.boxsubtext} />
         </div>
     )
 }
-
 export default HomePage

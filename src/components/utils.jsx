@@ -47,6 +47,34 @@ export const LargeCard = ({ image, smalltext, maintext, buttontext, buttonlink }
         </div>
     )
 }
+export const Banner = ({ image, maintext, submaintext, description, linkto, buttontext, boxtext, boxsubtext }) => {
+    let navigate = useNavigate()
+    async function handleClick() {
+        navigate(linkto)
+    }
+    return (
+        <div className="grid grid-cols-1 py-20">
+            <div style={{ maxHeight: 500 }} className="col-span-full col-start-1 row-start-1">
+                <img className="object-cover h-full w-full" src={image} alt={image} />
+            </div>
+
+            <div className="row-start-1 col-start-1 flex justify-center">
+                <div className="grid grid-cols-2" style={{ maxWidth: 1100 }}>
+                    <div>
+                        <div className="bg-primary-orange w-fit -mt-10 p-12 text-center">
+                            <div className="font-bold text-5xl">{boxtext}</div>
+                            <div className="font-extralight font-grace text-5xl">{boxsubtext}</div>
+                        </div>
+                        <h5 className="text-primary-green font-outfit text-6xl">{maintext}</h5>
+                        <h6>{submaintext}</h6>
+                        <div>{description}</div>
+                        <button onClick={handleClick}>{buttontext}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
 Card.propTypes = {
     image: PropTypes.string,
     heading: PropTypes.string,
@@ -64,4 +92,14 @@ LargeCard.propTypes = {
     maintext: PropTypes.string,
     buttontext: PropTypes.string,
     buttonlink: PropTypes.string,
+}
+Banner.propTypes = {
+    image: PropTypes.string,
+    maintext: PropTypes.string,
+    submaintext: PropTypes.string,
+    description: PropTypes.string,
+    linkto: PropTypes.string,
+    buttontext: PropTypes.string,
+    boxtext: PropTypes.string,
+    boxsubtext: PropTypes.string
 }
