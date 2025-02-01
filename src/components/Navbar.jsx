@@ -4,7 +4,7 @@ import { NavBarData } from "../../data"
 import { email } from "../../data"
 const Navbar = () => {
     return (
-        <div className="w-full">
+        <div className="w-full sticky top-0 z-100">
             <div className="bg-primary-blue py-5 border-b-2 border-gray-600">
                 <div>
                     <img className="px-2 w-32 lg:w-48 object-cover lg:px-7" src={icon} alt={icon} srcSet="" />

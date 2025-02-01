@@ -2,6 +2,7 @@ import PropTypes from "prop-types"
 import { useNavigate, Link } from "react-router";
 import { useState } from "react";
 import { caretIcon } from "../../data";
+import { motion } from "motion/react";
 export const Card = ({ image, heading, paragraph, imageDescription = image }) => {
     return (
         <div className="flex flex-wrap px-8 py-6 justify-center text-center">
@@ -13,7 +14,7 @@ export const Card = ({ image, heading, paragraph, imageDescription = image }) =>
 }
 export const ServiceCard = ({ image, icon, text }) => {
     return (
-        <div style={{ height: 400, width: 250 }} className="grid grid-cols-1 grid-rows-1 ">
+        <div style={{ height: 400, width: 250 }} className="grid grid-cols-1 grid-rows-1">
             <img className="object-cover h-full col-start-1 row-start-1 rounded-2xl" src={image} alt={image} />
             <div className="col-start-1 row-start-1 flex flex-col items-center px-5 pb-8 justify-end">
                 <div style={{ width: 70, height: 70 }} className="bg-service-green z-20 flex justify-center  p-4 rounded-xl w-fit">
@@ -55,20 +56,20 @@ export const Banner = ({ image, maintext, submaintext, description, linkto, butt
     }
     return (
         <div className="grid grid-cols-1 py-20">
-            <div style={{ maxHeight: 550 }} className="col-span-full col-start-1 row-start-1">
+            <motion.div initial={{ opacity: 0, x: 200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.2 }} style={{ maxHeight: 550 }} className="col-span-full col-start-1 row-start-1">
                 <img className="object-cover h-full w-full" src={image} alt={image} />
-            </div>
+            </motion.div>
             <div className="row-start-1 col-start-1 flex justify-center">
                 <div className="grid grid-cols-2" style={{ maxWidth: 1100 }}>
                     <div className="col-span-full px-10 py-4 lg:col-span-1">
-                        <div className="bg-primary-orange w-fit -mt-10 md:p-6 p-4 xl:p-12 text-center">
+                        <motion.div initial={{ opacity: 0, x: -100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1, ease: "easeOut", delay: 0.5 }} className="bg-primary-orange w-fit -mt-10 md:p-6 p-4 xl:p-12 text-center">
                             <div className="font-bold text-2xl md:text-3xl lg:text-5xl">{boxtext}</div>
                             <div className="font-extralight font-grace text-2xl md:text-3xl lg:text-5xl">{boxsubtext}</div>
-                        </div>
-                        <h5 className="text-primary-green md:text-4xl font-outfit pt-1 text-3xl lg:text-6xl">{maintext}</h5>
-                        <h6 className="font-outfit pb-2 text-3xl md:text-4xl lg:text-6xl  font-light">{submaintext}</h6>
-                        <div className="font-outfit text-sm md:text-base pb-3 w-6/8 md:w-1/2 lg:w-full">{description}</div>
-                        <button className="bg-deep-blue text-sm md:text-base rounded-sm text-white md:py-3 md:px-7 lg:py-4 py-2 md:rounded-lg px-5 lg:px-10" onClick={handleClick}>{buttontext}</button>
+                        </motion.div>
+                        <motion.h5 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1, delay: 0.65 }} className="text-primary-green md:text-4xl font-outfit pt-1 text-3xl lg:text-6xl">{maintext}</motion.h5>
+                        <motion.h6 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1, delay: 0.80 }} className="font-outfit pb-2 text-3xl md:text-4xl lg:text-6xl  font-light">{submaintext}</motion.h6>
+                        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1, delay: 0.95 }} className="font-outfit text-sm md:text-base pb-3 w-6/8 md:w-1/2 lg:w-full">{description}</motion.div>
+                        <motion.button initial={{ opacity: 0, y: 150 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 1.1 }} className="bg-deep-blue text-sm md:text-base rounded-sm text-white md:py-3 md:px-7 lg:py-4 py-2 md:rounded-lg px-5 lg:px-10" onClick={handleClick}>{buttontext}</motion.button>
                     </div>
                 </div>
             </div>
@@ -77,11 +78,19 @@ export const Banner = ({ image, maintext, submaintext, description, linkto, butt
 }
 export const Brands = ({ brandList }) => {
     return (
-        <div className="flex w-full flex-wrap gap-4 justify-evenly items-center">
+        <motion.div variants={{
+            hidden: { opacity: 0 },
+            show: {
+                opacity: 1,
+                transition: {
+                    staggerChildren: .3
+                }
+            }
+        }} initial="hidden" whileInView="show" className="flex w-full flex-wrap gap-4 justify-evenly items-center">
             {brandList.map((items, index) => {
-                return <img width={100} className="object-cover h-fit" src={items} key={items + index} />
+                return <motion.img variants={{ hidden: { opacity: 0 }, show: { opacity: 1 } }} width={100} className="object-cover h-fit" src={items} key={items + index} />
             })}
-        </div>
+        </motion.div>
     )
 }
 export const Split = ({ image, heading, description, links }) => {
@@ -96,7 +105,7 @@ export const Split = ({ image, heading, description, links }) => {
                 <div className="flex gap-4 py-5 ">
                     {links.map((item, index) => {
                         return (
-                            <Link to={item.link} key={item + index}><img className="object-contain" src={item.storeImage} alt="" /></Link>
+                            <Link title={`Get on ${item.title}`} to={item.link} key={item + index}><img className="object-contain" src={item.storeImage} alt="" /></Link>
                         )
                     })}
                 </div>
@@ -115,7 +124,7 @@ export const Questions = ({ question, answer }) => {
         <div>
             <div onClick={handleClick} className="py-5 border-t border-gray-300">
                 <div className="flex justify-between"><div className="font-bold text-xl"><span className="pr-3 ">Q.</span>{question}</div> <div><img className={showAnswer ? "transition rotate-180 duration-300 ease-in-out" : "transition rotate-0 duration-300 ease-in-out"} src={caretIcon} alt={caretIcon} /></div></div>
-                {showAnswer && <div className="py-3">{answer}</div>}
+                {showAnswer && <motion.div initial={{ opacity: 0 }} animate={{ opacity: 100 }} exit={{ opacity: 0 }} className="py-3">{answer}</motion.div>}
             </div>
         </div>
     )

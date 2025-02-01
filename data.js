@@ -1,5 +1,7 @@
+
 export const icon = "icons/icon.png"
 export const email = "contact@ekifoods.store"
+export const companyName = "Eki"
 export const NavBarData = {
     categories: {
         title: "All Categories"
@@ -11,6 +13,12 @@ export const NavBarData = {
         { title: "Order Tracking", link: "/order-tracking" },
     ]
 }
+export const footerNav = [
+    { title: "My account", link: "/my-account" },
+    { title: "My orders", link: "/my-orders" },
+    { title: "Return orders", link: "/return-orders" },
+    { title: "Wishlist", link: "/wishlist" },
+]
 export const herodata = {
     image: "/images/hero.png",
     mainText: "We Delivered to your Doorstep",
@@ -80,7 +88,7 @@ export const homeBanner = {
     maintext: "Fresh & Natural",
     subMaintext: "Product in Our Store",
     description: "Explore a vast selection of fresh, natural, and premium-quality products, sourced responsibly to bring health and flavor to your table every single day.",
-    buttonText: "Purchse Now",
+    buttonText: "Purchase Now",
     linkto: "#"
 }
 export const sponsors = [
@@ -97,8 +105,8 @@ export const homeSplit = {
     heading: "Connecting our user with iOS & Android apps.Download from App Store & Play store",
     description: "Eki is a fast growing online market space that provides e-commerce solutions, connecting buyers to sellers and helping them make seamless and hassle-free transactions on the go.",
     store: [
-        { storeImage: "images/AppStore.png", link: "#" },
-        { storeImage: "images/GooglePlay.png", link: "#" },
+        { storeImage: "images/AppStore.png", link: "#", title: "AppStore" },
+        { storeImage: "images/GooglePlay.png", link: "#", title: "Google PlayStore" },
     ]
 }
 
@@ -119,12 +127,26 @@ export const questionsAndAnswers = {
 export const caretIcon = "icons/CaretDown.png"
 
 export const socials = [
-    { name: "Facebook", icon: "/public/icons/Facebook.png", link: "#" },
-    { name: "Instagram", icon: "/public/icons/instagram.png", link: "#" },
-    { name: "Pinterest", icon: "/public/icons/pintarest.png", link: "#" },
-    { name: "Youtube", icon: "/public/icons/youtube.png", link: "#" },
-    { name: "X", icon: "/public/icons/twitter.png", link: "#" },
+    { name: "Facebook", icon: "icons/Facebook.png", link: "#" },
+    { name: "Instagram", icon: "icons/instagram.png", link: "#" },
+    { name: "Pinterest", icon: "icons/pintarest.png", link: "#" },
+    { name: "Youtube", icon: "icons/youtube.png", link: "#" },
+    { name: "X", icon: "icons/twitter.png", link: "#" },
 ]
 export const phone = [
-    "+234--------------","+234--------------"
+    "+234--------------", "+234--------------"
+]
+export const footerFeature = [
+    { text: "Delivery from 2-4 hour", icon: "/icons/deliveryIcon.png" },
+    { text: "Quality assurance", icon: "/icons/qualityassurance.png" },
+    { text: "24/7 delivery service", icon: "icons/time.png" },
+]
+
+export const paymentSystems = [
+    "icons/visa.png",
+    "icons/mastercard.png",
+    "icons/american-express.png",
+    "icons/bkash.png",
+    "icons/nagad.png",
+    "icons/rocket.png"
 ]
