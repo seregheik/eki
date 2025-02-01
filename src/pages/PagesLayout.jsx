@@ -6,7 +6,7 @@ const PagesLayout = () => {
     return (
         <div style={{ minHeight: "100vh" }} className="flex flex-col justify-between">
             <Navbar />
-            <section style={{ minHeight: "50vh" }} className="justify-center flex items-center h-full w-full">
+            <section style={{ minHeight: "50vh"}} className="justify-center flex items-center h-full w-full">
                 <Outlet />
             </section>
 
