@@ -1,6 +1,7 @@
 import Hero from "../components/Hero"
-import { cards, orderCard, services, homeBanner } from "../../data"
-import { Card, ServiceCard, LargeCard, Banner } from "../components/utils"
+import { cards, orderCard, services, homeBanner, sponsors, homeSplit, questionsAndAnswers } from "../../data"
+import { Card, ServiceCard, LargeCard, Banner, Brands, Split, Questions } from "../components/utils"
+import { Link } from "react-router"
 const HomePage = () => {
     return (
         <div>
@@ -48,6 +49,35 @@ const HomePage = () => {
                 buttontext={homeBanner.buttonText}
                 boxtext={homeBanner.boxmaintext}
                 boxsubtext={homeBanner.boxsubtext} />
+            <div className="flex justify-center">
+                <div className="w-full" style={{ maxWidth: 1280 }}> <Brands brandList={sponsors} /></div>
+            </div>
+            <section className="flex py-20 px-5 justify-center">
+                <div style={{ maxWidth: 1200 }} className="flex justify-center">
+                    <Split image={homeSplit.image} heading={homeSplit.heading} description={homeSplit.description} links={homeSplit.store} />
+                </div>
+            </section>
+            <section className="flex py-10 justify-center flex-wrap">
+                <div style={{ maxWidth: 1200 }} className="w-full px-4">
+                    {questionsAndAnswers.questionsandanswers.map((items, index) => {
+                        return <Questions key={items + index} question={items.question} answer={items.answer} />
+                    })}
+                    <div className="py-10">
+                        <div className="bg-ambient flex flex-wrap p-8 justify-between content-center items-center">
+                            <div className="py-2">
+                                <h5 className="text-2xl font-bold">{questionsAndAnswers.main}</h5>
+                                <p>{questionsAndAnswers.description}</p>
+                            </div>
+                            <Link to={questionsAndAnswers.link}>
+                                <div className="bg-primary-blue text-white p-5 rounded-md">
+                                    {questionsAndAnswers.buttonText}
+                                </div></Link>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
         </div>
     )
 }

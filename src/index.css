@@ -12,6 +12,8 @@
   --font-grace: "grace";
   --font-manrope: Manrope;
   --font-outfit: Outfit;
+  --color-deep-blue: #213144;
+  --color-ambient: #fefaf1;
 }
 body {
   font-family: "Inter", serif;

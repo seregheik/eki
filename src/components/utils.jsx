@@ -1,6 +1,7 @@
 import PropTypes from "prop-types"
-import { useNavigate } from "react-router";
+import { useNavigate, Link } from "react-router";
 import { useState } from "react";
+import { caretIcon } from "../../data";
 export const Card = ({ image, heading, paragraph, imageDescription = image }) => {
     return (
         <div className="flex flex-wrap px-8 py-6 justify-center text-center">
@@ -54,23 +55,67 @@ export const Banner = ({ image, maintext, submaintext, description, linkto, butt
     }
     return (
         <div className="grid grid-cols-1 py-20">
-            <div style={{ maxHeight: 500 }} className="col-span-full col-start-1 row-start-1">
+            <div style={{ maxHeight: 550 }} className="col-span-full col-start-1 row-start-1">
                 <img className="object-cover h-full w-full" src={image} alt={image} />
             </div>
-
             <div className="row-start-1 col-start-1 flex justify-center">
                 <div className="grid grid-cols-2" style={{ maxWidth: 1100 }}>
-                    <div>
-                        <div className="bg-primary-orange w-fit -mt-10 p-12 text-center">
-                            <div className="font-bold text-5xl">{boxtext}</div>
-                            <div className="font-extralight font-grace text-5xl">{boxsubtext}</div>
+                    <div className="col-span-full px-10 py-4 lg:col-span-1">
+                        <div className="bg-primary-orange w-fit -mt-10 md:p-6 p-4 xl:p-12 text-center">
+                            <div className="font-bold text-2xl md:text-3xl lg:text-5xl">{boxtext}</div>
+                            <div className="font-extralight font-grace text-2xl md:text-3xl lg:text-5xl">{boxsubtext}</div>
                         </div>
-                        <h5 className="text-primary-green font-outfit text-6xl">{maintext}</h5>
-                        <h6>{submaintext}</h6>
-                        <div>{description}</div>
-                        <button onClick={handleClick}>{buttontext}</button>
+                        <h5 className="text-primary-green md:text-4xl font-outfit pt-1 text-3xl lg:text-6xl">{maintext}</h5>
+                        <h6 className="font-outfit pb-2 text-3xl md:text-4xl lg:text-6xl  font-light">{submaintext}</h6>
+                        <div className="font-outfit text-sm md:text-base pb-3 w-6/8 md:w-1/2 lg:w-full">{description}</div>
+                        <button className="bg-deep-blue text-sm md:text-base rounded-sm text-white md:py-3 md:px-7 lg:py-4 py-2 md:rounded-lg px-5 lg:px-10" onClick={handleClick}>{buttontext}</button>
                     </div>
                 </div>
+            </div>
+        </div>
+    )
+}
+export const Brands = ({ brandList }) => {
+    return (
+        <div className="flex w-full flex-wrap gap-4 justify-evenly items-center">
+            {brandList.map((items, index) => {
+                return <img width={100} className="object-cover h-fit" src={items} key={items + index} />
+            })}
+        </div>
+    )
+}
+export const Split = ({ image, heading, description, links }) => {
+    return (
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+            <div className="bg-ambient flex justify-center content-center p-10 rounded-2xl">
+                <img width={400} className="object-contain" src={image} alt={image} />
+            </div>
+            <div className=" flex flex-wrap content-center">
+                <h5 className="font-bold font-manrope text-2xl md:text-4xl py-5">{heading}</h5>
+                <p className=" text-base text-gray-600">{description}</p>
+                <div className="flex gap-4 py-5 ">
+                    {links.map((item, index) => {
+                        return (
+                            <Link to={item.link} key={item + index}><img className="object-contain" src={item.storeImage} alt="" /></Link>
+                        )
+                    })}
+                </div>
+            </div>
+        </div>
+    )
+}
+export const Questions = ({ question, answer }) => {
+    const [showAnswer, setShowAnswer] = useState(false)
+    function handleClick(e) {
+        e.stopPropagation()
+        setShowAnswer(!showAnswer)
+        console.log("clicked")
+    }
+    return (
+        <div>
+            <div onClick={handleClick} className="py-5 border-t border-gray-300">
+                <div className="flex justify-between"><div className="font-bold text-xl"><span className="pr-3 ">Q.</span>{question}</div> <div><img className={showAnswer ? "transition rotate-180 duration-300 ease-in-out" : "transition rotate-0 duration-300 ease-in-out"} src={caretIcon} alt={caretIcon} /></div></div>
+                {showAnswer && <div className="py-3">{answer}</div>}
             </div>
         </div>
     )
@@ -102,4 +147,17 @@ Banner.propTypes = {
     buttontext: PropTypes.string,
     boxtext: PropTypes.string,
     boxsubtext: PropTypes.string
+}
+Brands.propTypes = {
+    brandList: PropTypes.array
+}
+Split.propTypes = {
+    image: PropTypes.string,
+    heading: PropTypes.string,
+    description: PropTypes.string,
+    links: PropTypes.array
+}
+Questions.propTypes = {
+    question: PropTypes.string,
+    answer: PropTypes.string
 }
