@@ -55,7 +55,7 @@ export const Banner = ({ image, maintext, submaintext, description, linkto, butt
         navigate(linkto)
     }
     return (
-        <div className="grid grid-cols-1 py-20">
+        <div className="grid grid-cols-1 py-20 overflow-hidden">
             <motion.div initial={{ opacity: 0, x: 200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.2 }} style={{ maxHeight: 550 }} className="col-span-full col-start-1 row-start-1">
                 <img className="object-cover h-full w-full" src={image} alt={image} />
             </motion.div>

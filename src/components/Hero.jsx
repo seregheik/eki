@@ -2,7 +2,7 @@ import { herodata } from "../../data"
 const Hero = () => {
     return (
         <section className="bg-gray-400 w-full content-center items-center grid grid-cols-1 justify-center">
-            <img style={{ minHeight: 400 }} className="row-start-1 col-start-1 object-cover" src={herodata.image} alt="" />
+            <img style={{ minHeight: 600 }} className="row-start-1 col-start-1 object-cover" src={herodata.image} alt="" />
             <div className="row-start-1 w-full col-start-1 flex justify-center">
                 <div style={{ maxWidth: 1200 }} className="grid px-10 w-full grid-cols-1 md:grid-cols-2">
                     <div className="col-span-full lg:col-span-1">
