@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router"
+import { BrowserRouter, Route, Routes, HashRouter } from "react-router"
 import HomePage from "./pages/HomePage"
 import PagesLayout from "./pages/PagesLayout"
 import Offers from "./pages/Offers"
@@ -11,7 +11,7 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <ScrollToTop />
         <Routes>
 
@@ -23,7 +23,7 @@ function App() {
             <Route path="/order-tracking" element={<OrderTracking />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
   )
 }
